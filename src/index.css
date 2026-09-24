@@ -1,0 +1,233 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@layer base {
+  :root {
+    --radius-sm: 0.625rem;
+    --radius-md: 0.875rem;
+    --radius-lg: 1.25rem;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    @apply rounded-md;
+  }
+
+  img,
+  video {
+    @apply rounded-lg;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+/* Global dark mode styling for non-preview form controls */
+.dark:not(.preview-isolation) input[type='text'],
+.dark:not(.preview-isolation) input[type='number'],
+.dark:not(.preview-isolation) input[type='email'],
+.dark:not(.preview-isolation) input[type='tel'],
+.dark:not(.preview-isolation) input[type='url'],
+.dark:not(.preview-isolation) textarea,
+.dark:not(.preview-isolation) select {
+  background-color: #1f2937;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+.dark:not(.preview-isolation) input::placeholder,
+.dark:not(.preview-isolation) textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Allow borderless & transparent textareas inside editors */
+.dark:not(.preview-isolation) .markdown-rich-editor textarea,
+.dark:not(.preview-isolation) textarea.border-0,
+.dark:not(.preview-isolation) textarea.\!border-0,
+.dark:not(.preview-isolation) textarea.\!border-none {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Isolate preview completely from dark mode */
+.preview-isolation,
+.preview-isolation * {
+  color-scheme: light !important;
+}
+
+.preview-isolation input,
+.preview-isolation select,
+.preview-isolation textarea {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border-color: #d1d5db !important;
+}
+
+/* Markdown content styling in preview and print */
+.markdown-preview strong,
+.markdown-preview b {
+  font-weight: 700;
+}
+
+.markdown-preview em,
+.markdown-preview i {
+  font-style: italic;
+}
+
+.markdown-preview u {
+  text-decoration: underline;
+}
+
+.markdown-preview sub {
+  vertical-align: sub;
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+.markdown-preview sup {
+  vertical-align: super;
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+.markdown-preview ul.markdown-list {
+  list-style-type: disc;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  padding-left: 1.25rem;
+}
+
+.markdown-preview ul.markdown-list li {
+  margin-bottom: 0.125rem;
+}
+
+.markdown-preview .markdown-paragraph {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-preview .markdown-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Rich Text WYSIWYG Content Editable styles */
+.markdown-rich-content {
+  outline: none;
+}
+
+.markdown-rich-content:empty::before {
+  content: attr(data-placeholder);
+  color: #9ca3af;
+  pointer-events: none;
+  display: block;
+}
+
+.dark .markdown-rich-content:empty::before {
+  color: #6b7280;
+}
+
+.markdown-rich-content ul.markdown-list,
+.markdown-rich-content ul {
+  list-style-type: disc;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  padding-left: 1.25rem;
+}
+
+.markdown-rich-content li {
+  margin-bottom: 0.125rem;
+}
+
+.markdown-rich-content strong,
+.markdown-rich-content b {
+  font-weight: 700;
+}
+
+.markdown-rich-content em,
+.markdown-rich-content i {
+  font-style: italic;
+}
+
+.markdown-rich-content u {
+  text-decoration: underline;
+}
+
+.markdown-rich-content sub {
+  vertical-align: sub;
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+.markdown-rich-content sup {
+  vertical-align: super;
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+.markdown-rich-content .markdown-paragraph {
+  margin-bottom: 0.25rem;
+}
+
+@media print {
+  @page {
+    size: auto;
+    margin: 0mm !important;
+  }
+
+  body {
+    visibility: hidden !important;
+    background-color: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #resume-preview,
+  #resume-preview * {
+    visibility: visible !important;
+  }
+
+  #resume-preview {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+  }
+
+  .page-break-indicator {
+    display: none !important;
+  }
+
+  .resume-section-wrapper {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .resume-section-wrapper[data-page-break-before='true'] {
+    break-before: page !important;
+    page-break-before: always !important;
+    padding-top: var(--new-page-top-margin, 32px) !important;
+  }
+
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
