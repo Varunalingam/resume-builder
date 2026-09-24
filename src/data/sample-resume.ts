@@ -1,0 +1,283 @@
+import {
+  type Resume,
+  SectionItemTypes,
+  SectionTypes,
+} from '../types/resume.types.ts'
+
+export const sampleResume: Resume = {
+  personalInfo: {
+    name: 'Varunalingam V',
+    email: 'varunalingam.v@gmail.com',
+    phone: '+91-7358669054',
+    location: 'Chennai',
+    links: [
+      {
+        id: 'link-1',
+        name: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/Varunalingam/',
+        icon: 'linkedin',
+      },
+      {
+        id: 'link-2',
+        name: 'GitHub',
+        url: 'https://github.com/Varunalingam',
+        icon: 'github',
+      },
+    ],
+  },
+  sections: [
+    {
+      id: 'sec-profiles',
+      title: 'Profiles',
+      type: SectionTypes.TEXT,
+      itemType: SectionItemTypes.SOCIAL,
+      isVisible: true,
+      items: [
+        {
+          id: 'prof-1',
+          type: SectionItemTypes.SOCIAL,
+          platform: 'LinkedIn',
+          url: 'https://www.linkedin.com/in/Varunalingam/',
+          icon: 'linkedin',
+        },
+        {
+          id: 'prof-2',
+          type: SectionItemTypes.SOCIAL,
+          platform: 'GitHub',
+          url: 'https://github.com/Varunalingam',
+          icon: 'github',
+        },
+      ],
+    },
+    {
+      id: 'sec-experience',
+      title: 'Experience',
+      type: SectionTypes.EXPERIENCE,
+      itemType: SectionItemTypes.STANDARD,
+      isVisible: true,
+      items: [
+        {
+          id: 'exp-1',
+          type: SectionItemTypes.STANDARD,
+          header: 'Software Dev Engineer',
+          subHeader: 'Amazon',
+          dateRange: { startDate: 'March 2025', endDate: 'Present' },
+          location: 'Chennai',
+          description:
+            'Java | Python | TypeScript - AWS | Lambda | CloudWatch | MLFlow | CloudFormation\n• Amazon Payments: Developed an accounting automation framework for CoBrand Credit Cards in Brazil, streamlining Invoice generation and Revenue collection for a total revenue value of over 50M+ BRL.\n• AGI for Alexa: Designed and implemented an MLFlow-integrated platform enabling scientists to run over 160+ experiments and publish metrics asynchronously to leadership dashboards for analysis.\n• Alexa Personalization: Managed a Tier-1 system processing 100K+ requests per hour across 4 regions; resolved scaling issues within 5 minutes. Worked on Finite State Transducers for efficient Alexa Action routing.',
+        },
+        {
+          id: 'exp-2',
+          type: SectionItemTypes.STANDARD,
+          header: 'Technology Associate',
+          subHeader: 'Morgan Stanley',
+          dateRange: { startDate: 'Aug 2023', endDate: 'Mar 2025' },
+          location: 'Bengaluru',
+          description:
+            "TypeScript | Angular | NgRx - Java | Spring Boot | Gradle - Kafka\n• Led Client Onboarding's MonoRepo, partnering with 20+ teams using Agile & TDD; Designed a risk-reduction solution that boasted HK–SG credit apps by 10%.\n• Tech Analyst: Modernized monolithic apps to a scalable architecture using TDD, improving system availability from 75% to 95%.",
+        },
+      ],
+    },
+    {
+      id: 'sec-internships',
+      title: 'Internships',
+      type: SectionTypes.EXPERIENCE,
+      itemType: SectionItemTypes.STANDARD,
+      isVisible: true,
+      items: [
+        {
+          id: 'intern-1',
+          type: SectionItemTypes.STANDARD,
+          header: 'Backend Developer Intern',
+          subHeader: 'Global Groupware Solutions Ltd. (EmployWise)',
+          dateRange: { startDate: 'Sep 2022', endDate: 'Jun 2023' },
+          location: 'Remote',
+          description:
+            'Java | Spring Boot | Maven - Kafka - Neo4j | Couchbase - AWS\n• Worked on an HR Management Product, planned and developed various Microservices using an Event Driven Architecture and IFTTT.\n• Used Neo4j, a graph database, to manage 100K+ hierarchical user relationships.',
+        },
+        {
+          id: 'intern-2',
+          type: SectionItemTypes.STANDARD,
+          header: 'Technology Analyst Intern',
+          subHeader: 'Morgan Stanley',
+          dateRange: { startDate: 'May 2022', endDate: 'Jul 2022' },
+          location: 'Bengaluru',
+          description:
+            "Java | Spring Boot | Gradle - Apache Kafka\n• Worked on core Fixed Income Trading systems delivering real-time currency rates impacting 20%+ of FID's profits. Reduced batch latency from 15 mins to 1 min.\n• Implemented multi-threading, batch processing, and event management frameworks.",
+        },
+      ],
+    },
+    {
+      id: 'sec-education',
+      title: 'Education',
+      type: SectionTypes.EDUCATION,
+      itemType: SectionItemTypes.STANDARD,
+      isVisible: true,
+      items: [
+        {
+          id: 'edu-1',
+          type: SectionItemTypes.STANDARD,
+          header: 'B. Tech - Instrumentation and Control Engineering',
+          subHeader: 'National Institute of Technology',
+          dateRange: { startDate: 'Jul 2019', endDate: 'May 2023' },
+          description: 'CGPA: 7.8',
+        },
+      ],
+    },
+    {
+      id: 'sec-languages',
+      title: 'Languages',
+      type: SectionTypes.SKILLS,
+      itemType: SectionItemTypes.TAG,
+      isVisible: true,
+      items: [
+        {
+          id: 'lang-1',
+          type: SectionItemTypes.TAG,
+          tags: ['English', 'Tamil', 'Hindi'],
+        },
+      ],
+    },
+    {
+      id: 'sec-skills',
+      title: 'Technical Skills',
+      type: SectionTypes.SKILLS,
+      itemType: SectionItemTypes.TAG,
+      isVisible: true,
+      items: [
+        {
+          id: 'skill-1',
+          type: SectionItemTypes.TAG,
+          header: 'Programming Languages',
+          tags: [
+            'Java',
+            'Kotlin',
+            'Python',
+            'JavaScript',
+            'TypeScript',
+            'C#',
+            'C++',
+            'Rust',
+          ],
+        },
+        {
+          id: 'skill-2',
+          type: SectionItemTypes.TAG,
+          header: 'Platforms, Stacks, Engines, Tools',
+          tags: [
+            'Android',
+            'AWS',
+            'React',
+            'Django',
+            'Spring Boot',
+            'MySQL',
+            'MongoDB',
+            'Unity',
+            'Blender',
+            'ML using Scikit-Learn',
+            'PostgreSQL',
+            'Diesel',
+            'Phaser',
+            'Hadoop',
+            'Apache Kafka',
+            'Gradle',
+            'Couchbase',
+            'Neo4j',
+            'Angular',
+            'Maven',
+          ],
+        },
+        {
+          id: 'skill-3',
+          type: SectionItemTypes.TAG,
+          header: 'Other Software and Technologies',
+          tags: [
+            'Office 365',
+            'Photoshop',
+            'Git',
+            'HTML',
+            'CSS',
+            'Tina',
+            'Arduino',
+            'MATLAB',
+          ],
+        },
+        {
+          id: 'skill-4',
+          type: SectionItemTypes.TAG,
+          header: 'Operating Systems',
+          tags: ['Linux', 'Windows'],
+        },
+        {
+          id: 'skill-5',
+          type: SectionItemTypes.TAG,
+          header: 'Special Skills',
+          tags: [
+            'Software Architecture',
+            'Product Design',
+            'Debugging',
+            'Testing',
+            'Leadership',
+            'Problem Solving',
+            'Teamwork',
+            'Creative',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'sec-projects',
+      title: 'Projects',
+      type: SectionTypes.PROJECTS,
+      itemType: SectionItemTypes.STANDARD,
+      isVisible: true,
+      items: [
+        {
+          id: 'proj-1',
+          type: SectionItemTypes.STANDARD,
+          header: 'Attack on Robots',
+          subHeader: 'Lead Full Stack Developer',
+          dateRange: { startDate: 'Q4 2021', endDate: 'Q1 2022' },
+          description:
+            'React-Redux | Phaser | JavaScript - Diesel | Rust - PostgreSQL\n• Lead the development of a City Planning and Defense Simulation Multiplayer Game for Pragyan 22’. Which had created 170+ new user registrations for Pragyan.\n• The game had an isometric gameplay with modular architecture, multiple game modes, optimized simulators.',
+        },
+        {
+          id: 'proj-2',
+          type: SectionItemTypes.STANDARD,
+          header: 'Beer Factory',
+          subHeader: 'Full Stack Developer',
+          dateRange: { startDate: 'Q4 2020', endDate: 'Q1 2021' },
+          description:
+            'React Semantic UI | JavaScript - Django | Python - MySQL\n• A Resource Management Game for Pragyan 21’, which had over 400 participants.\n• The major features are Duels (multiplayer matchmaking part connected using sockets), Daily Challenges, in-game ads.',
+        },
+        {
+          id: 'proj-3',
+          type: SectionItemTypes.STANDARD,
+          header: 'Kaval Arann',
+          subHeader: 'App Developer',
+          dateRange: { startDate: 'Q4 2020' },
+          description:
+            'Android | MVVM | Kotlin - Spring Boot | Java - MongoDB\n• An Android App developed by Delta Force, NITT, for the Department of Police, Tiruchirappalli. (Patent Pending)\n• The major features are recording of public requests and filing FIR, integration of existing services, contact information, attendance management based on Location',
+        },
+      ],
+    },
+    {
+      id: 'sec-responsibilities',
+      title: 'Position of Responsibilities',
+      type: SectionTypes.TEXT,
+      itemType: SectionItemTypes.STANDARD,
+      isVisible: true,
+      items: [
+        {
+          id: 'por-1',
+          type: SectionItemTypes.STANDARD,
+          header: 'Delta Force (Programming Club NITT)',
+          subHeader: 'Developer',
+          dateRange: { startDate: 'Jun 2020', endDate: 'Jun 2022' },
+          description:
+            '• We develop and maintain Apps and Programs for fests and events conducted in NITT like Festember, Pragyan\n• Coordinate with teams, work on various projects, Ideate and Collaborate on new open-source projects.',
+        },
+      ],
+    },
+  ],
+}
