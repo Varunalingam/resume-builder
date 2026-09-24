@@ -1,9 +1,12 @@
-import React, {useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import type {RootState} from '../../../../app/store.ts'
-import {updatePersonalInfo} from '../../../../store/resume/resumeSlice.ts'
-import type {PersonalInfoLink} from '../../../../types/resume.types.ts'
-import {getSocialDefaultIcon, getSocialIconUrl,} from '../../../../lib/iconUtils.ts'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import type { RootState } from '../../../../app/store.ts'
+import { updatePersonalInfo } from '../../../../store/resume/resumeSlice.ts'
+import type { PersonalInfoLink } from '../../../../types/resume.types.ts'
+import {
+  getSocialDefaultIcon,
+  getSocialIconUrl,
+} from '../../../../lib/iconUtils.ts'
 import ImageCropModal from '../../../general/ImageCropModal.tsx'
 import IconPickerModal from '../../../general/IconPickerModal.tsx'
 
@@ -19,16 +22,16 @@ const PersonalInfoEditor: React.FC = () => {
   )
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const {name, value} = e.target
-    dispatch(updatePersonalInfo({[name]: value}))
+    const { name, value } = e.target
+    dispatch(updatePersonalInfo({ [name]: value }))
   }
 
   const handlePhotoSave = (croppedDataUrl: string) => {
-    dispatch(updatePersonalInfo({photoUrl: croppedDataUrl}))
+    dispatch(updatePersonalInfo({ photoUrl: croppedDataUrl }))
   }
 
   const handlePhotoRemove = () => {
-    dispatch(updatePersonalInfo({photoUrl: ''}))
+    dispatch(updatePersonalInfo({ photoUrl: '' }))
   }
 
   // Social Links management
@@ -41,7 +44,7 @@ const PersonalInfoEditor: React.FC = () => {
       url: '',
       icon: '',
     }
-    dispatch(updatePersonalInfo({links: [...links, newLink]}))
+    dispatch(updatePersonalInfo({ links: [...links, newLink] }))
   }
 
   const handleUpdateLink = (
@@ -50,14 +53,14 @@ const PersonalInfoEditor: React.FC = () => {
     value: string,
   ) => {
     const updated = links.map((link, i) =>
-      i === index ? {...link, [field]: value} : link,
+      i === index ? { ...link, [field]: value } : link,
     )
-    dispatch(updatePersonalInfo({links: updated}))
+    dispatch(updatePersonalInfo({ links: updated }))
   }
 
   const handleRemoveLink = (index: number) => {
     const updated = links.filter((_, i) => i !== index)
-    dispatch(updatePersonalInfo({links: updated}))
+    dispatch(updatePersonalInfo({ links: updated }))
   }
 
   return (
@@ -85,8 +88,8 @@ const PersonalInfoEditor: React.FC = () => {
               Indian passport standard ratio (35 × 45 mm)
             </p>
           </div>
-          {personalInfo.photoUrl && (<span
-              className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
+          {personalInfo.photoUrl && (
+            <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
               Photo Uploaded
             </span>
           )}
@@ -96,8 +99,7 @@ const PersonalInfoEditor: React.FC = () => {
           {/* Passport Photo Frame (exact 35:45 ratio, 70px x 90px) */}
           <div className="relative shrink-0">
             {personalInfo.photoUrl ? (
-              <div
-                className="relative h-[90px] w-[70px] overflow-hidden rounded border-2 border-blue-500 bg-white shadow-xs dark:bg-gray-800">
+              <div className="relative h-[90px] w-[70px] overflow-hidden rounded border-2 border-blue-500 bg-white shadow-xs dark:bg-gray-800">
                 <img
                   src={personalInfo.photoUrl}
                   alt="Passport preview"
@@ -105,8 +107,7 @@ const PersonalInfoEditor: React.FC = () => {
                 />
               </div>
             ) : (
-              <div
-                className="flex h-[90px] w-[70px] flex-col items-center justify-center rounded border-2 border-dashed border-gray-300 bg-white p-1 text-center shadow-2xs dark:border-gray-700 dark:bg-gray-800">
+              <div className="flex h-[90px] w-[70px] flex-col items-center justify-center rounded border-2 border-dashed border-gray-300 bg-white p-1 text-center shadow-2xs dark:border-gray-700 dark:bg-gray-800">
                 <span className="text-xl">👤</span>
                 <span className="mt-1 text-[9px] font-medium text-gray-400">
                   35 × 45 mm
@@ -247,9 +248,7 @@ const PersonalInfoEditor: React.FC = () => {
         ) : (
           <div className="mt-3 space-y-3">
             {links.map((link, idx) => {
-              const suggestedIcon = getSocialDefaultIcon(
-                link.name || link.url,
-              )
+              const suggestedIcon = getSocialDefaultIcon(link.name || link.url)
               const iconUrl = getSocialIconUrl(link.icon)
 
               return (
@@ -296,11 +295,9 @@ const PersonalInfoEditor: React.FC = () => {
                     </div>
                   </div>
 
-                  <div
-                    className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-gray-100 pt-2.5 dark:border-gray-800">
+                  <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-gray-100 pt-2.5 dark:border-gray-800">
                     <div className="flex items-center gap-2">
-                      <div
-                        className="flex h-7 w-7 shrink-0 items-center justify-center rounded border border-gray-200 bg-gray-50 shadow-2xs dark:border-gray-700 dark:bg-gray-800">
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded border border-gray-200 bg-gray-50 shadow-2xs dark:border-gray-700 dark:bg-gray-800">
                         {iconUrl ? (
                           <img
                             src={iconUrl}
@@ -318,8 +315,7 @@ const PersonalInfoEditor: React.FC = () => {
                       </div>
                       <span className="text-xs text-gray-600 dark:text-gray-400">
                         {link.icon ? (
-                          <span
-                            className="rounded-sm border border-blue-200 bg-blue-50 px-1.5 py-0.5 text-[11px] font-semibold text-blue-700 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300">
+                          <span className="rounded-sm border border-blue-200 bg-blue-50 px-1.5 py-0.5 text-[11px] font-semibold text-blue-700 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300">
                             {link.icon}
                           </span>
                         ) : (

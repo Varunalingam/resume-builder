@@ -95,7 +95,9 @@ export function markdownToHtml(markdown: string): string {
         // Empty line separator
         htmlParts.push('<div class="empty-line"><br/></div>')
       } else {
-        htmlParts.push(`<div class="markdown-paragraph">${parseInlineMarkdown(rawLine)}</div>`)
+        htmlParts.push(
+          `<div class="markdown-paragraph">${parseInlineMarkdown(rawLine)}</div>`,
+        )
       }
     }
   }
@@ -140,29 +142,41 @@ export function htmlToMarkdown(html: string): string {
   clean = clean.replace(/<(?:p|div)[^>]*>/gi, '')
 
   // 3. Process links: <a href="url">text</a> -> [text](url)
-  clean = clean.replace(/<a\s+[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi, '[$2]($1)')
+  clean = clean.replace(
+    /<a\s+[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
+    '[$2]($1)',
+  )
 
   // 4. Repeatedly parse inline formatting from inside out
   let prev = ''
   while (prev !== clean) {
     prev = clean
     // Bold: <strong> or <b>
-    clean = clean.replace(/<(?:strong|b)[^>]*>([\s\S]*?)<\/(?:strong|b)>/gi, (_match, p1) => {
-      const trimmed = p1.trim()
-      return trimmed ? `**${trimmed}**` : ''
-    })
+    clean = clean.replace(
+      /<(?:strong|b)[^>]*>([\s\S]*?)<\/(?:strong|b)>/gi,
+      (_match, p1) => {
+        const trimmed = p1.trim()
+        return trimmed ? `**${trimmed}**` : ''
+      },
+    )
 
     // Italic: <em> or <i>
-    clean = clean.replace(/<(?:em|i)[^>]*>([\s\S]*?)<\/(?:em|i)>/gi, (_match, p1) => {
-      const trimmed = p1.trim()
-      return trimmed ? `*${trimmed}*` : ''
-    })
+    clean = clean.replace(
+      /<(?:em|i)[^>]*>([\s\S]*?)<\/(?:em|i)>/gi,
+      (_match, p1) => {
+        const trimmed = p1.trim()
+        return trimmed ? `*${trimmed}*` : ''
+      },
+    )
 
     // Underline: <u> or <ins> -> placeholder
-    clean = clean.replace(/<(?:u|ins)[^>]*>([\s\S]*?)<\/(?:u|ins)>/gi, (_match, p1) => {
-      const trimmed = p1.trim()
-      return trimmed ? `__U_START__${trimmed}__U_END__` : ''
-    })
+    clean = clean.replace(
+      /<(?:u|ins)[^>]*>([\s\S]*?)<\/(?:u|ins)>/gi,
+      (_match, p1) => {
+        const trimmed = p1.trim()
+        return trimmed ? `__U_START__${trimmed}__U_END__` : ''
+      },
+    )
 
     // Subscript: <sub> -> placeholder
     clean = clean.replace(/<sub[^>]*>([\s\S]*?)<\/sub>/gi, (_match, p1) => {

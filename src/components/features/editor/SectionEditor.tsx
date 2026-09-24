@@ -170,7 +170,7 @@ const SectionEditor: React.FC<SectionEditorProps> = ({ section }) => {
                 ? 'Item type cannot be changed once items are added. Remove all items to change.'
                 : 'Choose item type for this section'
             }
-            className="disabled:block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-xs transition-colors focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 disabled:dark:border-gray-800 disabled:dark:text-gray-500"
+            className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-xs transition-colors focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none disabled:block disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 disabled:dark:border-gray-800 disabled:dark:text-gray-500"
           >
             {getItemTypeOptions().map((opt) => (
               <option key={opt.value} value={opt.value}>

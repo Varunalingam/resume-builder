@@ -1,5 +1,5 @@
-import React, {useEffect, useId, useState} from 'react'
-import {POPULAR_ICONS8_ICONS} from '../../lib/iconUtils.ts'
+import React, { useEffect, useId, useState } from 'react'
+import { POPULAR_ICONS8_ICONS } from '../../lib/iconUtils.ts'
 
 interface IconItem {
   name: string
@@ -22,14 +22,14 @@ interface IconPickerModalProps {
 }
 
 const IconPickerModal: React.FC<IconPickerModalProps> = ({
-                                                           isOpen,
-                                                           onClose,
-                                                           onSelectIcon,
-                                                           currentIcon,
-                                                           sectionTitle,
-                                                           title,
-                                                           subtitle,
-                                                         }) => {
+  isOpen,
+  onClose,
+  onSelectIcon,
+  currentIcon,
+  sectionTitle,
+  title,
+  subtitle,
+}) => {
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState<IconItem[]>([])
   const [isLoading, setIsLoading] = useState(false)
@@ -191,8 +191,7 @@ const IconPickerModal: React.FC<IconPickerModalProps> = ({
             </button>
           </div>
 
-          <div
-            className="max-h-64 min-h-[160px] overflow-y-auto rounded-lg border border-gray-100 bg-gray-50 p-3 dark:border-gray-800 dark:bg-gray-950">
+          <div className="max-h-64 min-h-[160px] overflow-y-auto rounded-lg border border-gray-100 bg-gray-50 p-3 dark:border-gray-800 dark:bg-gray-950">
             {isLoading ? (
               <div className="flex h-36 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
                 Searching Icons8...
@@ -203,7 +202,8 @@ const IconPickerModal: React.FC<IconPickerModalProps> = ({
                   No icons found for &quot;{searchTerm}&quot;
                 </p>
                 <p className="mt-1 text-xs text-gray-400 dark:text-gray-500">
-                  Try searching for keywords like linkedin, github, globe, or email
+                  Try searching for keywords like linkedin, github, globe, or
+                  email
                 </p>
               </div>
             ) : (

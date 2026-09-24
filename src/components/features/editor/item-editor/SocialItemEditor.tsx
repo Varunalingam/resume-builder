@@ -1,13 +1,16 @@
-import {useState} from 'react'
-import {useDispatch} from 'react-redux'
-import type {SocialEntry} from '../../../../types/resume.types.ts'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import type { SocialEntry } from '../../../../types/resume.types.ts'
 import {
   removeSectionItem,
   reorderSectionItems,
   toggleSectionItemVisibility,
   updateSectionItem,
 } from '../../../../store/resume/resumeSlice.ts'
-import {getSocialDefaultIcon, getSocialIconUrl,} from '../../../../lib/iconUtils.ts'
+import {
+  getSocialDefaultIcon,
+  getSocialIconUrl,
+} from '../../../../lib/iconUtils.ts'
 import IconPickerModal from '../../../general/IconPickerModal.tsx'
 
 interface SocialItemEditorProps {
@@ -18,11 +21,11 @@ interface SocialItemEditorProps {
 }
 
 const SocialItemEditor = ({
-                            item,
-                            sectionId,
-                            index,
-                            totalItems,
-                          }: SocialItemEditorProps) => {
+  item,
+  sectionId,
+  index,
+  totalItems,
+}: SocialItemEditorProps) => {
   const dispatch = useDispatch()
   const [isIconPickerOpen, setIsIconPickerOpen] = useState(false)
 
@@ -34,13 +37,13 @@ const SocialItemEditor = ({
       updateSectionItem({
         sectionId,
         itemId: item.id,
-        updates: {[field]: value},
+        updates: { [field]: value },
       }),
     )
   }
 
   const handleToggleVisibility = () => {
-    dispatch(toggleSectionItemVisibility({sectionId, itemId: item.id}))
+    dispatch(toggleSectionItemVisibility({ sectionId, itemId: item.id }))
   }
 
   const handleMoveUp = () => {
@@ -72,7 +75,7 @@ const SocialItemEditor = ({
   }
 
   const handleRemoveItem = () => {
-    dispatch(removeSectionItem({sectionId, itemId: item.id}))
+    dispatch(removeSectionItem({ sectionId, itemId: item.id }))
   }
 
   const titlePreview =
@@ -88,7 +91,8 @@ const SocialItemEditor = ({
   const suggestedIcon = getSocialDefaultIcon(item.platform || item.url)
   const currentIconUrl = getSocialIconUrl(item.icon)
 
-  return (<div
+  return (
+    <div
       className={`mb-4 rounded-lg border bg-white p-5 shadow-xs transition-all hover:shadow-sm dark:bg-gray-900 ${
         !isVisible
           ? 'border-dashed border-amber-300 opacity-80 dark:border-amber-800'
@@ -111,16 +115,14 @@ const SocialItemEditor = ({
             {titlePreview}
           </span>
           {!isVisible && (
-            <span
-              className="inline-flex shrink-0 items-center rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+            <span className="inline-flex shrink-0 items-center rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-800 dark:bg-amber-950 dark:text-amber-300">
               Hidden
             </span>
           )}
         </div>
         <div className="flex shrink-0 items-center gap-2">
           {/* Arrow Reorder Controls */}
-          <div
-            className="flex items-center rounded-md border border-gray-200 bg-gray-50 p-0.5 shadow-2xs dark:border-gray-700 dark:bg-gray-800">
+          <div className="flex items-center rounded-md border border-gray-200 bg-gray-50 p-0.5 shadow-2xs dark:border-gray-700 dark:bg-gray-800">
             <button
               type="button"
               onClick={handleMoveUp}
@@ -142,7 +144,7 @@ const SocialItemEditor = ({
                 />
               </svg>
             </button>
-            <div className="h-3.5 w-[1px] bg-gray-200 dark:bg-gray-700"/>
+            <div className="h-3.5 w-[1px] bg-gray-200 dark:bg-gray-700" />
             <button
               type="button"
               onClick={handleMoveDown}
@@ -235,12 +237,10 @@ const SocialItemEditor = ({
       </div>
 
       {/* Optional Icon Selector */}
-      <div
-        className="mt-3.5 rounded-md border border-gray-100 bg-gray-50/70 p-3 dark:border-gray-800 dark:bg-gray-800/40">
+      <div className="mt-3.5 rounded-md border border-gray-100 bg-gray-50/70 p-3 dark:border-gray-800 dark:bg-gray-800/40">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white shadow-2xs dark:border-gray-700 dark:bg-gray-800">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white shadow-2xs dark:border-gray-700 dark:bg-gray-800">
               {currentIconUrl ? (
                 <img
                   src={currentIconUrl}
@@ -262,8 +262,7 @@ const SocialItemEditor = ({
                   Optional Icon:
                 </span>
                 {item.icon ? (
-                  <span
-                    className="rounded-sm border border-blue-200 bg-blue-50 px-1.5 py-0.5 text-[11px] font-semibold text-blue-700 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300">
+                  <span className="rounded-sm border border-blue-200 bg-blue-50 px-1.5 py-0.5 text-[11px] font-semibold text-blue-700 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300">
                     {item.icon}
                   </span>
                 ) : (

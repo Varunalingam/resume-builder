@@ -1,11 +1,26 @@
-import React, {useCallback, useEffect, useLayoutEffect, useRef, useState,} from 'react'
-import {useSelector} from 'react-redux'
-import type {RootState} from '../../app/store.ts'
-import {type PersonalInfoLayout, type Section, SectionItemTypes, SectionTypes,} from '../../types/resume.types.ts'
-import {defaultTheme} from '../../data/default-theme.ts'
-import {DEFAULT_PAGE_FORMAT, PAGE_FORMATS, type PageFormat,} from '../../lib/pageFormats.ts'
-import {printResume} from '../../lib/printUtils.ts'
-import {getSocialIconUrl} from '../../lib/iconUtils.ts'
+import React, {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react'
+import { useSelector } from 'react-redux'
+import type { RootState } from '../../app/store.ts'
+import {
+  type PersonalInfoLayout,
+  type Section,
+  SectionItemTypes,
+  SectionTypes,
+} from '../../types/resume.types.ts'
+import { defaultTheme } from '../../data/default-theme.ts'
+import {
+  DEFAULT_PAGE_FORMAT,
+  PAGE_FORMATS,
+  type PageFormat,
+} from '../../lib/pageFormats.ts'
+import { printResume } from '../../lib/printUtils.ts'
+import { getSocialIconUrl } from '../../lib/iconUtils.ts'
 import StandardSectionPreview from '../features/preview/StandardSectionPreview.tsx'
 import TagSectionPreview from '../features/preview/TagSectionPreview.tsx'
 import DescriptionSectionPreview from '../features/preview/DescriptionSectionPreview.tsx'
@@ -117,7 +132,7 @@ const ResumePreview: React.FC = () => {
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        const {width, height} = entry.contentRect
+        const { width, height } = entry.contentRect
         if (width > 0 && height > 0 && zoomModeRef.current === 'fit') {
           const fit = calculateFitScale(width - 32, height - 32)
           setScale(fit)
@@ -301,15 +316,15 @@ const ResumePreview: React.FC = () => {
 
     switch (itemType) {
       case SectionItemTypes.STANDARD:
-        return <StandardSectionPreview section={section} theme={activeTheme}/>
+        return <StandardSectionPreview section={section} theme={activeTheme} />
       case SectionItemTypes.TAG:
-        return <TagSectionPreview section={section} theme={activeTheme}/>
+        return <TagSectionPreview section={section} theme={activeTheme} />
       case SectionItemTypes.DESCRIPTION:
         return (
-          <DescriptionSectionPreview section={section} theme={activeTheme}/>
+          <DescriptionSectionPreview section={section} theme={activeTheme} />
         )
       case SectionItemTypes.SOCIAL:
-        return <SocialSectionPreview section={section} theme={activeTheme}/>
+        return <SocialSectionPreview section={section} theme={activeTheme} />
       default:
         return null
     }
@@ -374,7 +389,7 @@ const ResumePreview: React.FC = () => {
         key="email"
         href={`mailto:${resume.personalInfo.email}`}
         className="cursor-pointer hover:underline"
-        style={{color: 'inherit', textDecoration: 'none'}}
+        style={{ color: 'inherit', textDecoration: 'none' }}
       >
         {resume.personalInfo.email}
       </a>,
@@ -387,7 +402,7 @@ const ResumePreview: React.FC = () => {
         key="phone"
         href={`tel:${resume.personalInfo.phone.replace(/[^\d+]/g, '')}`}
         className="cursor-pointer hover:underline"
-        style={{color: 'inherit', textDecoration: 'none'}}
+        style={{ color: 'inherit', textDecoration: 'none' }}
       >
         {resume.personalInfo.phone}
       </a>,
@@ -443,8 +458,8 @@ const ResumePreview: React.FC = () => {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 cursor-pointer hover:underline"
-            style={{color: 'inherit', textDecoration: 'none'}}
+            className="inline-flex cursor-pointer items-center gap-1 hover:underline"
+            style={{ color: 'inherit', textDecoration: 'none' }}
           >
             {linkContent}
           </a>,
@@ -491,7 +506,7 @@ const ResumePreview: React.FC = () => {
               {i > 0 && (
                 <span
                   className="opacity-60 select-none"
-                  style={{margin: '0 0.45rem'}}
+                  style={{ margin: '0 0.45rem' }}
                 >
                   |
                 </span>
@@ -528,7 +543,7 @@ const ResumePreview: React.FC = () => {
       case 'left':
         return (
           <header
-            style={{marginBottom: activeTheme.spacing.section.gap}}
+            style={{ marginBottom: activeTheme.spacing.section.gap }}
             className="flex flex-row items-center justify-start gap-4 text-left"
           >
             {passportPhotoElement}
@@ -538,7 +553,7 @@ const ResumePreview: React.FC = () => {
       case 'left-right':
         return (
           <header
-            style={{marginBottom: activeTheme.spacing.section.gap}}
+            style={{ marginBottom: activeTheme.spacing.section.gap }}
             className="flex flex-row items-center justify-between gap-4 text-left"
           >
             <div className="min-w-0 flex-1 text-left">{headerTextElement}</div>
@@ -548,7 +563,7 @@ const ResumePreview: React.FC = () => {
       case 'center-left':
         return (
           <header
-            style={{marginBottom: activeTheme.spacing.section.gap}}
+            style={{ marginBottom: activeTheme.spacing.section.gap }}
             className="flex flex-row items-center justify-center gap-5 text-left"
           >
             {passportPhotoElement}
@@ -558,7 +573,7 @@ const ResumePreview: React.FC = () => {
       case 'center-right':
         return (
           <header
-            style={{marginBottom: activeTheme.spacing.section.gap}}
+            style={{ marginBottom: activeTheme.spacing.section.gap }}
             className="flex flex-row items-center justify-center gap-5 text-right"
           >
             <div className="min-w-0 text-right">{headerTextElement}</div>
@@ -568,7 +583,7 @@ const ResumePreview: React.FC = () => {
       case 'right-left':
         return (
           <header
-            style={{marginBottom: activeTheme.spacing.section.gap}}
+            style={{ marginBottom: activeTheme.spacing.section.gap }}
             className="flex flex-row items-center justify-between gap-4 text-right"
           >
             {passportPhotoElement}
@@ -578,7 +593,7 @@ const ResumePreview: React.FC = () => {
       case 'right':
         return (
           <header
-            style={{marginBottom: activeTheme.spacing.section.gap}}
+            style={{ marginBottom: activeTheme.spacing.section.gap }}
             className="flex flex-row items-center justify-end gap-4 text-right"
           >
             <div className="min-w-0 flex-1 text-right">{headerTextElement}</div>
@@ -588,7 +603,7 @@ const ResumePreview: React.FC = () => {
       default:
         return (
           <header
-            style={{marginBottom: activeTheme.spacing.section.gap}}
+            style={{ marginBottom: activeTheme.spacing.section.gap }}
             className="flex flex-row items-center justify-center gap-5 text-left"
           >
             {passportPhotoElement}
@@ -601,8 +616,7 @@ const ResumePreview: React.FC = () => {
   return (
     <div className="flex h-full flex-col overflow-hidden bg-gray-200">
       {/* Preview Toolbar */}
-      <div
-        className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-gray-300 bg-white px-4 py-2 shadow-xs select-none">
+      <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-gray-300 bg-white px-4 py-2 shadow-xs select-none">
         {/* Page Format Selector & Page Count */}
         <div className="flex items-center gap-2">
           <label
@@ -739,7 +753,7 @@ const ResumePreview: React.FC = () => {
           >
             {/* Page Break Separators with Margin Consideration */}
             {totalPages > 1 &&
-              Array.from({length: totalPages - 1}).map((_, i) => {
+              Array.from({ length: totalPages - 1 }).map((_, i) => {
                 const pageIndex = i + 1
                 const pageBoundary = pageIndex * selectedPage.heightPx
                 const bottomMarginStart = pageBoundary - bottomMarginPx
@@ -756,7 +770,7 @@ const ResumePreview: React.FC = () => {
                   >
                     {/* Page {pageIndex} Bottom Margin Zone */}
                     <div
-                      style={{height: `${bottomMarginPx}px`}}
+                      style={{ height: `${bottomMarginPx}px` }}
                       className="relative flex items-center justify-between border-t border-dashed border-red-300 bg-red-500/5 px-4"
                     >
                       <span className="text-[10px] font-semibold tracking-wider text-red-500 uppercase">
@@ -770,22 +784,21 @@ const ResumePreview: React.FC = () => {
 
                     {/* Central Page Split Line - Placed EXACTLY at pageBoundary */}
                     <div
-                      style={{top: `${bottomMarginPx}px`}}
+                      style={{ top: `${bottomMarginPx}px` }}
                       className="absolute right-0 left-0 z-10 flex -translate-y-1/2 items-center"
                     >
-                      <div className="flex-1 border-t-2 border-dashed border-red-500 opacity-80"/>
-                      <div
-                        className="mx-2 flex items-center gap-1.5 rounded-full border border-red-400 bg-red-50/95 px-3 py-0.5 shadow-xs backdrop-blur-xs">
+                      <div className="flex-1 border-t-2 border-dashed border-red-500 opacity-80" />
+                      <div className="mx-2 flex items-center gap-1.5 rounded-full border border-red-400 bg-red-50/95 px-3 py-0.5 shadow-xs backdrop-blur-xs">
                         <span className="text-[11px] font-bold text-red-600">
                           ✂ Page {pageIndex} End / Page {pageIndex + 1} Start
                         </span>
                       </div>
-                      <div className="flex-1 border-t-2 border-dashed border-red-500 opacity-80"/>
+                      <div className="flex-1 border-t-2 border-dashed border-red-500 opacity-80" />
                     </div>
 
                     {/* Page {pageIndex + 1} Top Margin Zone */}
                     <div
-                      style={{height: `${newPageTopMarginPx}px`}}
+                      style={{ height: `${newPageTopMarginPx}px` }}
                       className="relative flex items-center justify-between border-b border-dashed border-blue-300 bg-blue-500/5 px-4"
                     >
                       <span className="text-[10px] font-semibold tracking-wider text-blue-600 uppercase">
@@ -846,11 +859,11 @@ const ResumePreview: React.FC = () => {
                         style={{
                           fontFamily: activeTheme.typography.fontFamily.heading,
                           fontSize:
-                          activeTheme.typography.section.title.fontSize,
+                            activeTheme.typography.section.title.fontSize,
                           fontWeight:
-                          activeTheme.typography.section.title.fontWeight,
+                            activeTheme.typography.section.title.fontWeight,
                           lineHeight:
-                          activeTheme.typography.section.title.lineHeight,
+                            activeTheme.typography.section.title.lineHeight,
                           textTransform: activeTheme.typography.section.title
                             .textTransform as React.CSSProperties['textTransform'],
                           color: activeTheme.colors.primary,

@@ -334,7 +334,9 @@ const MarkdownRichEditor: React.FC<MarkdownRichEditorProps> = ({
                   : 'bg-emerald-500 dark:bg-emerald-400'
               }`}
             />
-            <span>{mode === 'markdown' ? 'Markdown Mode' : 'Rich Text (WYSIWYG)'}</span>
+            <span>
+              {mode === 'markdown' ? 'Markdown Mode' : 'Rich Text (WYSIWYG)'}
+            </span>
           </div>
         </div>
 
@@ -379,17 +381,35 @@ const MarkdownRichEditor: React.FC<MarkdownRichEditorProps> = ({
       <div className="mt-1.5 flex flex-wrap items-center justify-between gap-1 text-[11px] text-gray-500 dark:text-gray-400">
         {mode === 'markdown' ? (
           <span className="flex flex-wrap items-center gap-1">
-            <span className="font-semibold text-gray-600 dark:text-gray-300">Syntax:</span>{' '}
-            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">**bold**</code>
-            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">*italic*</code>
-            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">&lt;u&gt;underline&lt;/u&gt;</code>
-            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">&lt;sub&gt;sub&lt;/sub&gt;</code>
-            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">&lt;sup&gt;sup&lt;/sup&gt;</code>
-            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">- bullet</code>
+            <span className="font-semibold text-gray-600 dark:text-gray-300">
+              Syntax:
+            </span>{' '}
+            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+              **bold**
+            </code>
+            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+              *italic*
+            </code>
+            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+              &lt;u&gt;underline&lt;/u&gt;
+            </code>
+            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+              &lt;sub&gt;sub&lt;/sub&gt;
+            </code>
+            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+              &lt;sup&gt;sup&lt;/sup&gt;
+            </code>
+            <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-[10px] text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+              - bullet
+            </code>
           </span>
         ) : (
           <span>
-            <strong className="font-semibold text-gray-600 dark:text-gray-300">WYSIWYG:</strong> Formatting toolbar &amp; shortcuts (Ctrl+B, Ctrl+I, Ctrl+U) enabled. Auto-syncs to markdown.
+            <strong className="font-semibold text-gray-600 dark:text-gray-300">
+              WYSIWYG:
+            </strong>{' '}
+            Formatting toolbar &amp; shortcuts (Ctrl+B, Ctrl+I, Ctrl+U) enabled.
+            Auto-syncs to markdown.
           </span>
         )}
       </div>

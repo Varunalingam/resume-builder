@@ -71,14 +71,12 @@ const SocialItemPreview: React.FC<SocialItemPreviewProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: theme.colors.text }}
-            className="inline-flex items-center gap-1.5 cursor-pointer hover:underline"
+            className="inline-flex cursor-pointer items-center gap-1.5 hover:underline"
           >
             {linkContent}
           </a>
         ) : (
-          <div className="inline-flex items-center gap-1.5">
-            {linkContent}
-          </div>
+          <div className="inline-flex items-center gap-1.5">{linkContent}</div>
         )}
       </div>
     )
@@ -96,7 +94,7 @@ const SocialItemPreview: React.FC<SocialItemPreviewProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: theme.colors.text }}
-            className="inline-flex items-center gap-1.5 truncate cursor-pointer hover:underline"
+            className="inline-flex cursor-pointer items-center gap-1.5 truncate hover:underline"
           >
             {iconElement}
             {item.platform && (
@@ -149,14 +147,12 @@ const SocialItemPreview: React.FC<SocialItemPreviewProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: theme.colors.text }}
-          className="inline-flex items-center gap-1.5 cursor-pointer hover:underline"
+          className="inline-flex cursor-pointer items-center gap-1.5 hover:underline"
         >
           {linkContent}
         </a>
       ) : (
-        <span className="inline-flex items-center gap-1.5">
-          {linkContent}
-        </span>
+        <span className="inline-flex items-center gap-1.5">{linkContent}</span>
       )}
     </span>
   )

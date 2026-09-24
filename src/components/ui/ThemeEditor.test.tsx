@@ -1,7 +1,7 @@
-import {describe, expect, it} from 'vitest'
-import {renderToStaticMarkup} from 'react-dom/server'
-import {Provider} from 'react-redux'
-import {configureStore} from '@reduxjs/toolkit'
+import { describe, expect, it } from 'vitest'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { Provider } from 'react-redux'
+import { configureStore } from '@reduxjs/toolkit'
 import themeReducer from '../../store/theme/themeSlice.ts'
 import resumeReducer from '../../store/resume/resumeSlice.ts'
 import ThemeEditor from './ThemeEditor.tsx'
@@ -19,7 +19,7 @@ describe('High-Level UI Component Hosts', () => {
     const store = createMockStore()
     const html = renderToStaticMarkup(
       <Provider store={store}>
-        <ThemeEditor/>
+        <ThemeEditor />
       </Provider>,
     )
     expect(html).toContain('Theme Settings')
