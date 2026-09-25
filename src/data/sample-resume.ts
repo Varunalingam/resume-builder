@@ -64,7 +64,7 @@ export const sampleResume: Resume = {
           dateRange: { startDate: 'March 2025', endDate: 'Present' },
           location: 'Chennai',
           description:
-            'Java | Python | TypeScript - AWS | Lambda | CloudWatch | MLFlow | CloudFormation\n• Amazon Payments: Developed an accounting automation framework for CoBrand Credit Cards in Brazil, streamlining Invoice generation and Revenue collection for a total revenue value of over 50M+ BRL.\n• AGI for Alexa: Designed and implemented an MLFlow-integrated platform enabling scientists to run over 160+ experiments and publish metrics asynchronously to leadership dashboards for analysis.\n• Alexa Personalization: Managed a Tier-1 system processing 100K+ requests per hour across 4 regions; resolved scaling issues within 5 minutes. Worked on Finite State Transducers for efficient Alexa Action routing.',
+            '**Java | Python | TypeScript - AWS | Lambda | CloudWatch | MLFlow | CloudFormation**\n\u2022 **Amazon Payments:** Developed an **accounting automation framework** for **CoBrand Credit Cards in Brazil**, streamlining **Invoice generation and Revenue collection** for a total revenue value of over **50M+ BRL**.\n\u2022 **AGI for Alexa:** Designed and implemented an **MLFlow-integrated platform** enabling scientists to run over **160+** experiments and publish metrics **asynchronously** to leadership dashboards for analysis.\n\u2022 **Alexa Personalization:** Managed a **Tier-1** system processing **100K+ requests per hour** across **4 regions**; resolved scaling issues within **5 minutes**. Worked on **Finite State Transducers** for efficient Alexa Action routing.',
         },
         {
           id: 'exp-2',
@@ -74,7 +74,7 @@ export const sampleResume: Resume = {
           dateRange: { startDate: 'Aug 2023', endDate: 'Mar 2025' },
           location: 'Bengaluru',
           description:
-            "TypeScript | Angular | NgRx - Java | Spring Boot | Gradle - Kafka\n• Led Client Onboarding's MonoRepo, partnering with 20+ teams using Agile & TDD; Designed a risk-reduction solution that boasted HK–SG credit apps by 10%.\n• Tech Analyst: Modernized monolithic apps to a scalable architecture using TDD, improving system availability from 75% to 95%.",
+            "**TypeScript | Angular | NgRx - Java | Spring Boot | Gradle - Kafka**\n\u2022 **Led Client Onboarding's MonoRepo**, partnering with **20+ teams** using **Agile** & TDD; **Designed** a **risk-reduction solution** that boasted **HK–SG credit apps by 10%**.\n\u2022 **Tech Analyst:** **Modernized monolithic apps** to a **scalable architecture** using **TDD**, improving **system availability from 75% to 95%**.",
         },
       ],
     },
@@ -93,7 +93,7 @@ export const sampleResume: Resume = {
           dateRange: { startDate: 'Sep 2022', endDate: 'Jun 2023' },
           location: 'Remote',
           description:
-            'Java | Spring Boot | Maven - Kafka - Neo4j | Couchbase - AWS\n• Worked on an HR Management Product, planned and developed various Microservices using an Event Driven Architecture and IFTTT.\n• Used Neo4j, a graph database, to manage 100K+ hierarchical user relationships.',
+            '**Java | Spring Boot | Maven - Kafka - Neo4j | Couchbase - AWS**\n\u2022 Worked on an HR Management Product, planned and developed various Microservices using an **Event Driven Architecture** and **IFTTT**.\n\u2022 Used **Neo4j, a graph database,** to manage **100K+** hierarchical user relationships.',
         },
         {
           id: 'intern-2',
@@ -103,7 +103,7 @@ export const sampleResume: Resume = {
           dateRange: { startDate: 'May 2022', endDate: 'Jul 2022' },
           location: 'Bengaluru',
           description:
-            "Java | Spring Boot | Gradle - Apache Kafka\n• Worked on core Fixed Income Trading systems delivering real-time currency rates impacting 20%+ of FID's profits. Reduced batch latency from 15 mins to 1 min.\n• Implemented multi-threading, batch processing, and event management frameworks.",
+            "**Java | Spring Boot | Gradle - Apache Kafka**\n\u2022 Worked on **core Fixed Income Trading systems** delivering **real-time currency rates** impacting **20%+** of FID's profits. **Reduced batch latency** from **15 mins to 1 min**.\n\u2022 Implemented **multi-threading**, **batch processing**, and **event management** frameworks.",
         },
       ],
     },
@@ -239,7 +239,7 @@ export const sampleResume: Resume = {
           subHeader: 'Lead Full Stack Developer',
           dateRange: { startDate: 'Q4 2021', endDate: 'Q1 2022' },
           description:
-            'React-Redux | Phaser | JavaScript - Diesel | Rust - PostgreSQL\n• Lead the development of a City Planning and Defense Simulation Multiplayer Game for Pragyan 22’. Which had created 170+ new user registrations for Pragyan.\n• The game had an isometric gameplay with modular architecture, multiple game modes, optimized simulators.',
+            '**React-Redux | Phaser | JavaScript - Diesel | Rust - PostgreSQL**\n\u2022 Lead the development of a City Planning and Defense Simulation Multiplayer Game for Pragyan 22\u2019. Which had created 170+ new user registrations for Pragyan.\n\u2022 The game had an isometric gameplay with modular architecture, multiple game modes, optimized simulators.',
         },
         {
           id: 'proj-2',
@@ -248,7 +248,7 @@ export const sampleResume: Resume = {
           subHeader: 'Full Stack Developer',
           dateRange: { startDate: 'Q4 2020', endDate: 'Q1 2021' },
           description:
-            'React Semantic UI | JavaScript - Django | Python - MySQL\n• A Resource Management Game for Pragyan 21’, which had over 400 participants.\n• The major features are Duels (multiplayer matchmaking part connected using sockets), Daily Challenges, in-game ads.',
+            '**React Semantic UI | JavaScript - Django | Python - MySQL**\n\u2022 A Resource Management Game for Pragyan 21\u2019, which had over 400 participants.\n\u2022 The major features are Duels (multiplayer matchmaking part connected using sockets), Daily Challenges, in-game ads.',
         },
         {
           id: 'proj-3',
@@ -257,7 +257,7 @@ export const sampleResume: Resume = {
           subHeader: 'App Developer',
           dateRange: { startDate: 'Q4 2020' },
           description:
-            'Android | MVVM | Kotlin - Spring Boot | Java - MongoDB\n• An Android App developed by Delta Force, NITT, for the Department of Police, Tiruchirappalli. (Patent Pending)\n• The major features are recording of public requests and filing FIR, integration of existing services, contact information, attendance management based on Location',
+            '**Android | MVVM | Kotlin - Spring Boot | Java - MongoDB**\n\u2022 An Android App developed by Delta Force, NITT, for the Department of Police, Tiruchirappalli. (Patent Pending)\n\u2022 The major features are recording of public requests and filing FIR, integration of existing services, contact information, attendance management based on Location',
         },
       ],
     },
@@ -275,7 +275,7 @@ export const sampleResume: Resume = {
           subHeader: 'Developer',
           dateRange: { startDate: 'Jun 2020', endDate: 'Jun 2022' },
           description:
-            '• We develop and maintain Apps and Programs for fests and events conducted in NITT like Festember, Pragyan\n• Coordinate with teams, work on various projects, Ideate and Collaborate on new open-source projects.',
+            '\u2022 We develop and maintain Apps and Programs for fests and events conducted in NITT like Festember, Pragyan\n\u2022 Coordinate with teams, work on various projects, Ideate and Collaborate on new open-source projects.',
         },
       ],
     },
