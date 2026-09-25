@@ -8,12 +8,12 @@ const AntigravityIcon: React.FC<{ className?: string }> = ({
     title="Google Antigravity"
   >
     <img
-      src="/antigravity-icon-dark.png"
+      src={`${import.meta.env.BASE_URL}antigravity-icon-dark.png`}
       alt="Google Antigravity"
       className="h-full w-full object-contain select-none dark:hidden"
     />
     <img
-      src="/antigravity-icon-white.png"
+      src={`${import.meta.env.BASE_URL}antigravity-icon-white.png`}
       alt="Google Antigravity"
       className="hidden h-full w-full object-contain select-none dark:inline-block"
     />
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
           VSSVe
         </span>
         <img
-          src="/vssve-logo.svg"
+          src={`${import.meta.env.BASE_URL}vssve-logo.svg`}
           alt="VSSVe Logo"
           title="VSSVe Studios"
           className="h-5 w-5 shrink-0 rounded object-contain shadow-2xs transition-transform select-none hover:scale-110"
